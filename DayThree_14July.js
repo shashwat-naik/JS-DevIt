@@ -54,7 +54,19 @@ console.log(`${inp3} ` + check(inp3));
 // Extra Question
 // Q1 Odd even number without using if statement, for loop and inbuilt function
 let n1 = 25;
-console.log(n1 % 2 ? "odd" : "even");
+console.log(n1 % 2 ? "odd" : "even"); // ternary operator is also a if else
+
+// __________________________________________________________________________________
+
+let number1 = 5; // have used bitwise operator
+let result = ["Even", "Odd"][num % 2];
+console.log(result);
+
+// ____________________________________________________________________________________
+
+let number2 = 15;
+let evenodd = ["even", "odd"];
+console.log(evenodd[number2 % 2]);
 
 // Q2 From a given string find the frequency of each character inside of the string
 function countFreq(name) {
@@ -62,7 +74,10 @@ function countFreq(name) {
 
   for (let i = 0; i < name.length; i++) {
     let keep = name[i];
-    if (duplicate[keep]) {
+    // space
+    if (name[i] == " ") continue;
+    // normal iteration
+    else if (duplicate[keep]) {
       duplicate[keep]++;
     } else {
       duplicate[keep] = 1;
@@ -71,5 +86,19 @@ function countFreq(name) {
   return duplicate;
 }
 
-let ans = countFreq("shashwat");
+let ans = countFreq("shashwat naik");
 console.log(ans);
+
+// Q3 Email regexp
+function emailId(input) {
+  let regexp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return regexp.test(input);
+}
+console.log(emailId("shashwat@gamil.com"));
+
+// Phone number
+function phno(input) {
+  let regex = /^[0-9]{10,}$/;
+  return regex.test(input);
+}
+console.log(phno());
