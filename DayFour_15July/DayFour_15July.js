@@ -10,16 +10,15 @@ console.log(find);
 
 // Q7 Use Symbol as a key for a secret user id and prevent from being accidentally overwritten.
 
-let secretId = Symbol("goodisme");
+let secretId = Symbol("id");
 let user = {
   name: "Shashwat",
   [secretId]: "123abc",
 };
 
 console.log("Accessing via symbol " + user[secretId]);
-user["goodisme"] = "fakeboi";
+user["secretId"] ="123"
 
-console.log("Overwritting: " + user["goodisme"]);
 console.log("Original: " + user[secretId]);
 
 // Q8 Browser obj interaction:
