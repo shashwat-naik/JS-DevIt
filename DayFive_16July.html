@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form and DOM Practice</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 30px;
+        background-color: #f7f9fc;
+        color: #333;
+      }
+      form {
+        background-color: #fff;
+        padding: 20px;
+        margin-bottom: 30px;
+        margin-top: 30px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        width: 100%;
+        max-width: 500px;
+      }
+      label,
+      input,
+      button {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+      }
+      button {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      .button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2px;
+        width: 55%;
+      }
+      .colored-divs div {
+        padding: 10px;
+        margin: 0px 0;
+        color: white;
+        font-weight: bold;
+      }
+      p {
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+
+
+    <!-- Ans1 -->
+    <form id="myForm">
+      <h3>Q1. Validate Name, Email, and Password</h3>
+      <label for="nameSpace">Name:</label>
+      <input type="text" id="nameSpace" />
+      <label for="emailSpace">Email:</label>
+      <input type="text" id="emailSpace" />
+      <label for="passSpace">Password:</label>
+      <input type="text" id="passSpace" />
+      <button type="submit">Submit</button>
+    </form>
+
+
+    <!-- Ans2 -->
+    <h3>Q2. Color Divs using JavaScript</h3>
+    <div class="colored-divs">
+      <div>Div 1</div>
+      <div>Div 2</div>
+      <div>Div 3</div>
+    </div>
+
+
+    <!-- Ans3 -->
+    <form>
+      <h3>Q3. Select Hobbies (Checkbox)</h3>
+      <input type="checkbox" name="hobbies" value="Playing" /> Playing
+      <input type="checkbox" name="hobbies" value="Singing" /> Singing
+      <input type="checkbox" name="hobbies" value="Dancing" /> Dancing
+      <input type="checkbox" name="hobbies" value="Reading" /> Reading
+      <input type="checkbox" name="hobbies" value="Sketching" /> Sketching
+      <button id="submitMe">Submit</button>
+    </form>
+
+
+    <!-- Ans4 -->
+    <h3>Q4. InnerText vs InnerHTML</h3>
+    <p>Shashwat Naik</p>
+    <div class="button">
+      <button id="change1">InnerHTML</button>
+      <button id="change2">InnerText</button>
+    </div>
+
+
+    <!-- Ans5 -->
+    <form id="form2">
+      <h3>Q5. Validate Form (Email, Password Match)</h3>
+      <label for="name">Name</label>
+      <input type="text" id="name" />
+      <label for="email">Email</label>
+      <input type="text" id="email" />
+      <label for="pass">Password</label>
+      <input type="text" id="pass" />
+      <label for="passCon">Confirm Password</label>
+      <input type="text" id="passCon" />
+      <button type="submit">Submit</button>
+    </form>
+
+
+    <!-- Ans6 -->
+    <form id="form3">
+      <h3>Q6. Validate Name and Age</h3>
+      <label for="nme">Name</label>
+      <input type="text" id="nme" />
+      <label for="age">Age</label>
+      <input type="number" id="age" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+
+
+      // Q1 Create a form with three input fields: name, email, and password. Validate all three using getElementById.
+      let form = document.getElementById("myForm");
+      let inp1 = document.getElementById("nameSpace");
+      let inp2 = document.getElementById("emailSpace");
+      let inp3 = document.getElementById("passSpace");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let name = inp1.value.trim();
+        let email = inp2.value.trim();
+        let password = inp3.value.trim();
+
+        if (name === "" || email === "" || password === "") {
+          alert("All fields are required.");
+          return;
+        }
+        let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        if (!emailPattern.test(email)) {
+          alert("Please enter a valid email.");
+          return;
+        }
+        if (password.length < 6) {
+          alert("Password must be at least 6 characters.");
+          return;
+        }
+      });
+
+
+
+      // Q2 Add 3 <div> elements and change the color of each using getElementsByTagName.
+      let divs = document.getElementsByTagName("div");
+      divs[0].style.backgroundColor = "blue";
+      divs[1].style.backgroundColor = "green";
+      divs[2].style.backgroundColor = "violet";
+
+
+
+      // Q3 Make a form with a checkbox group for hobbies using getElementsByName. Show selected hobbies on submit.
+      let hobby = document.getElementsByName("hobbies");
+      let btn = document.getElementById("submitMe");
+      btn.addEventListener("click", function (event) {
+        event.preventDefault();
+        for (let i = 0; i < hobby.length; i++) {
+          if (hobby[i].checked) console.log(hobby[i].value);
+        }
+      });
+
+
+
+      // Q4 Use innerText and innerHTML on same element. Show the difference in rendering.
+      let changebtn1 = document.getElementById("change1");
+      let changebtn2 = document.getElementById("change2");
+      let txt = document.getElementsByTagName("p")[0];
+
+      changebtn1.addEventListener("click", function () {
+        txt.innerHTML = "<b>Content is changed to bold</b>";
+      });
+      changebtn2.addEventListener("click", function () {
+        txt.innerText = "<b>Content is changed to bold</b>";
+      });
+
+
+
+      // Q5 Create a form:
+      //    Validate non-empty fields
+      //    Match password & confirm password
+      //    Validate email
+      //    Alert success if all are valid
+
+      let Form = document.getElementById("form2");
+      let Name = document.getElementById("name");
+      let Email = document.getElementById("email");
+      let Pass = document.getElementById("pass");
+      let PassCon = document.getElementById("passCon");
+
+      Form.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (
+          Name.value === "" ||
+          Email.value === "" ||
+          Pass.value === "" ||
+          PassCon.value === ""
+        ) {
+          alert("Fields are mandatory");
+          return;
+        }
+
+        let emailPatt = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        if (!emailPatt.test(Email.value)) {
+          alert("Please enter a valid email.");
+          return;
+        }
+
+        if (Pass.value !== PassCon.value) {
+          alert("Password doesn't match.");
+          return;
+        }
+
+        alert("Form submitted!!");
+      });
+
+
+
+      // Q6 Create a form that validates age and name
+      //    Name must be at least 3 characters long.
+      //    Age must be a number between 18 and 60.
+      //    Show appropriate alert messages if validation fails.
+      //    Show “Form submitted successfully” only if all validations pass.
+
+      let Frm = document.getElementById("form3");
+      let Nme = document.getElementById("nme");
+      let Age = document.getElementById("age");
+
+      Frm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let name = Nme.value.trim();
+        let age = parseInt(Age.value);
+
+        if (name.length < 3) {
+          alert("Name must be at least 3 characters.");
+          return;
+        }
+        if (isNaN(age) || age < 18 || age > 60) {
+          alert("Age must be between 18 to 60.");
+          return;
+        }
+        alert("Form submitted successfully!");
+      });
+    </script>
+  </body>
+</html>
