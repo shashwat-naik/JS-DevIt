@@ -1,0 +1,54 @@
+
+Q1. What is the purpose of the Reflect object in JavaScript?
+
+Reflect is like a toolbox in JavaScript that lets you perform common object operations (like getting, setting, or deleting properties) using simple function calls. 
+It makes code cleaner, safer, and easier to control when working with meta-programming.
+
+Example:
+let person = { name: "John" };
+Reflect.set(person, "name", "Alice"); // Sets name to Alice
+
+
+Q2. When would you use a Symbol instead of a regular string as an object key?
+
+Use a Symbol when you want to create a unique and hidden key that won’t accidentally overwrite or conflict with other keys.
+It's helpful for storing private or internal data in objects.
+
+Example:
+const secretId = Symbol("id");
+user[secretId] = "123abc"; // Not visible in loops or Object.keys()
+
+
+Q3. What is the difference between "window.location" and "document.location"?
+
+Both point to the current URL, but:
+- window.location is the correct and standard way to get or change the page URL.
+- document.location also works (for historical reasons), but it's not standard. You should use window.location.
+
+Example:
+window.location.href = "https://example.com"; // Redirects page
+
+
+Q4. How can you detect if the user is online using JavaScript?
+
+You can check if the browser is online using:
+navigator.onLine
+
+It returns true if the user is online, false if offline.
+
+Example:
+if (navigator.onLine) {
+    console.log("You are online");
+} else {
+    console.log("You are offline");
+}
+
+
+Q5. Explain how the screen object differs from the window object.
+
+- screen gives information about the user's physical screen, like width and height.
+- window represents the browser window and contains everything (like document, history, etc.).
+
+Example:
+screen.width       // Width of the screen
+window.innerWidth  // Width of the browser window (viewport)
