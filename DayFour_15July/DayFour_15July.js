@@ -10,14 +10,26 @@ console.log(find);
 
 // Q7 Use Symbol as a key for a secret user id and prevent from being accidentally overwritten.
 
-let secretId = Symbol("id");
+let secretId = Symbol();
 let user = {
   name: "Shashwat",
   [secretId]: "123abc",
 };
+// Normal 
+console.log("Accessing via symbol " + user[secretId]);
+user[secretId] = "123";
+
+console.log("Original: " + user[secretId]);
+
+// Using defineProperty
+Object.defineProperty(user, secretId, {
+  value: "12345",
+  writable: false,
+  configurable: false,
+});
 
 console.log("Accessing via symbol " + user[secretId]);
-user["secretId"] ="123"
+user[secretId] = "123";
 
 console.log("Original: " + user[secretId]);
 
