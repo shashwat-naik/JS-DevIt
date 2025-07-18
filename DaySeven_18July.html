@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trial</title>
+  </head>
+  <body>
+    <script>
+
+      // Q1 Set the localstorage
+      localStorage.setItem(
+        "user",
+        JSON.stringify({ name: "Naik", role: "Trainee" })
+      );
+
+
+      // Q2 cookie set
+      document.cookie = "user=Naik";
+      // Q2 cookie remove
+      document.cookie =
+        "employee= Shashwat; expires=Fri, 18 Jul 2025 12:16:00 UTC;";
+
+
+      // Q4 Use cookie attribute
+      document.cookie = "question4=CookiesAttribute; max-age=3; path=/";
+
+      
+      // Q5 I try catch example
+      try {
+        let salary = 19;
+        if (salary < 50000) throw new Error("Hard to Survive.");
+        else console.log("Live a good life.");
+      } catch (error) {
+        console.log("Error: ", error.message);
+      }
+
+      //  Q5 II try catch final example
+      try {
+        let age = 16;
+
+        if (age < 18) {
+          throw new Error("Access Denied: You are below 18.");
+        }
+
+        console.log("Access Granted.");
+      } catch (error) {
+        console.log("Caught Error:", error.message);
+      } finally {
+        console.log("Validation process complete.");
+      }
+    </script>
+  </body>
+</html>
