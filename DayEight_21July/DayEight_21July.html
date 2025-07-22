@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https:cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https:cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+
+    <title>Day Eight | 21 July</title>
+  </head>
+
+  <body class="bg-secondary-subtle overflow-x-hidden">
+    <form
+      class="row g-3 bg-light text-dark p-5 rounded-4 m-3"
+      onsubmit="handleSubmit(event)"
+    >
+      <h1 class="text-center fw-bold text-secondary">Q1 Json Calculator</h1>
+      <div class="col-md-12">
+        <label for="expression_for_calculate" class="form-label"
+          >Expression for Calculate</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="expression_for_calculate"
+          oninput="handleCalculate()"
+        />
+        <span id="inputFeedback"></span>
+      </div>
+
+      <div class="col-md-12">
+        <label for="Answer" class="form-label">Answer</label>
+        <input type="text" class="form-control" id="Answer" disabled />
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-dark w-100 fw-bold">
+          Calculate
+        </button>
+      </div>
+    </form>
+
+    <div class="bg-light p-5 m-3 rounded-4">
+      <h1 class="text-center fw-bold text-secondary">Q3 Closest</h1>
+      <div class="bg-secondary text-white rounded-4 p-3 m-2">
+        Great GrandParent
+        <div
+          class="bg-primary-subtle text-black rounded-4 p-3 m-2"
+          id="container"
+        >
+          GrandParent
+          <div class="bg-light-subtle rounded-4 p-3 m-2" id="container">
+            Nearest Parent
+            <div id="FocusElem" class="bg-success text-white rounded-4 p-3 m-2">
+              Selected child
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./DayEight_21July.js"></script>
+  </body>
+</html>
