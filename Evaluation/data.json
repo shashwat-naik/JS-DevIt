@@ -1,0 +1,13 @@
+{
+  "name": "Default User",
+  "college": "ABC University",
+  "img": "img/default-avatar.png",
+  "country": "India",
+  "state": "Odisha",
+  "city": "Bhubaneswar",
+  "address": "123 Street",
+  "gender": "Male",
+  "email": "default@email.com",
+  "college_joining_year": 2021,
+  "college_passing_year": 2025
+}
