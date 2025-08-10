@@ -62,7 +62,7 @@
 
 
     <!-- Ans1 -->
-    <form id="myForm">
+    <form id="myForm" onsubmit="handleSubmit(event)">
       <h3>Q1. Validate Name, Email, and Password</h3>
       <label for="nameSpace">Name:</label>
       <input type="text" id="nameSpace" />
@@ -84,7 +84,7 @@
 
 
     <!-- Ans3 -->
-    <form>
+    <form >
       <h3>Q3. Select Hobbies (Checkbox)</h3>
       <input type="checkbox" name="hobbies" value="Playing" /> Playing
       <input type="checkbox" name="hobbies" value="Singing" /> Singing
@@ -105,7 +105,7 @@
 
 
     <!-- Ans5 -->
-    <form id="form2">
+    <form id="form2" >
       <h3>Q5. Validate Form (Email, Password Match)</h3>
       <label for="name">Name</label>
       <input type="text" id="name" />
@@ -131,6 +131,11 @@
 
     <script>
 
+
+      // Extra
+      let handleSubmit=(e)=>{
+        console.log(e);
+      }
 
       // Q1 Create a form with three input fields: name, email, and password. Validate all three using getElementById.
       let form = document.getElementById("myForm");
@@ -255,7 +260,7 @@
           alert("Name must be at least 3 characters.");
           return;
         }
-        if (isNaN(age) || age < 18 || age > 60) {
+        if ( age > 18 || age < 60) {
           alert("Age must be between 18 to 60.");
           return;
         }

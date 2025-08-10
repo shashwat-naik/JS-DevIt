@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Simple Age Checker</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f3f3f3;
+        padding: 20px;
+      }
+
+      form {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 400px;
+        margin: auto;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      label {
+        display: block;
+        margin-bottom: 15px;
+      }
+
+      input[type="text"],
+      input[type="date"] {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      #status {
+        text-align: center;
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 style="text-align: center">Simple Age Checker</h2>
+
+    <form id="ageForm">
+      <label>
+        Name:
+        <input type="text" id="name" />
+      </label>
+
+      <label>
+        Date of Birth:
+        <input type="date" id="dob" />
+      </label>
+
+      <label>
+        Calculator (e.g. 10 + 5 * 2):
+        <input type="text" id="captcha" placeholder="Type a math expression" />
+      </label>
+
+      <button type="submit">Check Age</button>
+    </form>
+
+    <p id="status"></p>
+
+    <script>
+      document
+        .getElementById("ageForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          try {
+            let name = document.getElementById("name").value;
+            let dob = new Date(document.getElementById("dob").value);
+            let captcha = document.getElementById("captcha").value;
+
+            if (!name || isNaN(dob)) {
+              throw new Error("All fields are required.");
+            }
+
+            // Date Comparison
+            let today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            let monthDiff = today.getMonth() - dob.getMonth();
+            if (
+              monthDiff < 0 ||
+              (monthDiff === 0 && today.getDate() < dob.getDate())
+            ) {
+              age--;
+            }
+
+            if (age < 18) {
+              let dobField = document.getElementById("dob");
+              dobField.closest("label").style.border = "2px solid red";
+              alert("You must be at least 18 years old.");
+              return;
+            }
+
+            // Eval for math expression
+            let result;
+            try {
+              result = eval(captcha);
+              alert("Calculator Result: " + result);
+            } catch (evalError) {
+              alert("Invalid expression!");
+              return;
+            }
+
+            // Object using `this`
+            const user = {
+              userName: name,
+              greet: function () {
+                console.log("Hello from:", this.userName);
+              },
+            };
+            user.greet();
+
+            // Simulated server check using Promise
+            checkUserAge(age)
+              .then((msg) => {
+                alert(msg);
+                document.getElementById("status").innerText =
+                  msg + " | Math result: " + result;
+              })
+              .catch((err) => {
+                alert("Server Error: " + err.message);
+              });
+          } catch (error) {
+            alert("Caught Error: " + error.message);
+          }
+        });
+
+      function checkUserAge(age) {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (age >= 18) {
+              resolve("You are eligible.");
+            } else {
+              reject(new Error("Age not valid."));
+            }
+          }, 1000);
+        });
+      }
+    </script>
+  </body>
+</html>

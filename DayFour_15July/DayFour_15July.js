@@ -6,7 +6,7 @@ let corporate = {
 };
 let put = Reflect.set(corporate, "role", "Intern");
 let find = Reflect.get(corporate, "role");
-console.log(find);
+console.log(find);  // Intern
 
 // Q7 Use Symbol as a key for a secret user id and prevent from being accidentally overwritten.
 
@@ -16,22 +16,22 @@ let user = {
   [secretId]: "123abc",
 };
 // Normal 
-console.log("Accessing via symbol " + user[secretId]);
+console.log("Accessing via symbol " + user[secretId]); // 123abc
 user[secretId] = "123";
 
-console.log("Original: " + user[secretId]);
+console.log("Original: " + user[secretId]); // 123
 
 // Using defineProperty
 Object.defineProperty(user, secretId, {
-  value: "12345",
+  value: "12345", 
   writable: false,
   configurable: false,
 });
 
-console.log("Accessing via symbol " + user[secretId]);
+console.log("Accessing via symbol " + user[secretId]); // 12345
 user[secretId] = "123";
 
-console.log("Original: " + user[secretId]);
+console.log("Original: " + user[secretId]); // 12345
 
 // Q8 Browser obj interaction:
 //  a) Display alert with current screen and height using screen.

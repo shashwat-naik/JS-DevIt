@@ -4,13 +4,12 @@
 
 function handleSubmit(e) {
   e.preventDefault();
-  let expression_for_calculate = document.getElementById(
-    "expression_for_calculate"
+  let calculate = document.getElementById(
+    "calculate"
   );
   let Answer = document.getElementById("Answer");
-  let expression_for_calculate_val = expression_for_calculate.value;
 
-  let ansOfExpression = eval(expression_for_calculate_val);
+  let ansOfExpression = eval(calculate.value);
 
   Answer.value = ansOfExpression;
 }
@@ -18,22 +17,20 @@ function handleSubmit(e) {
 //exception handaling
 function handleCalculate() {
   let regex = /^[-+]?[0-9]{0,}([-+*/]?)[0-9]+$/;
-  let expression_for_calculate = document.getElementById(
-    "expression_for_calculate"
+  let calculate = document.getElementById(
+    "calculate"
   );
-  let expression_for_calculate_val = expression_for_calculate.value;
+
   let inputFeedback = document.getElementById("inputFeedback");
-  expression_for_calculate.style.border = "";
+  calculate.style.border = "";
 
   try {
-    if (regex.test(expression_for_calculate_val)) {
-      expression_for_calculate.style.border = "5px solid green";
+    if (regex.test(calculate.value)) {
+      calculate.style.border = "5px solid green";
       inputFeedback.classList = "text-success fw-bold";
-    } else {
-      throw new Error(`invalid input for calculation`);
-    }
+    } 
   } catch (error) {
-    expression_for_calculate.style.border = "5px solid red";
+    calculate.style.border = "5px solid red";
     inputFeedback.classList = "text-danger fw-bold";
     inputFeedback.innerText = error.message;
   }
@@ -88,7 +85,7 @@ if (closest) {
 
 // Q4 Hoisting scenario [Hoisting, var/let, strict mode]
 
-("use strict");
+"use strict";
 console.log(a);
 // console.log(b);
 // As variable b is initialized with let so its not a global variable and thus shows an error.

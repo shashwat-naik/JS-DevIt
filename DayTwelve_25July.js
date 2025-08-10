@@ -16,21 +16,20 @@ console.log(result.freq);
 
 // Q2 Create a function that parses a given date string. Calculates and returns days left from today with user friendly message.
 
-function daysCalculate(date1,date2){
-    let d1=new Date(date1);
-    let d2=new Date(date2);
+function daysCalculate(date1, date2) {
+  let d1 = new Date(date1);
+  let d2 = new Date(date2);
 
-    let diffTime=Math.abs(d2-d1);
-    let diffDay=Math.ceil(diffTime/(1000 * 60 * 60 * 24));
-    return diffDay;
+  let diffTime = Math.abs(d2 - d1);
+  let diffDay = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  return diffDay;
 }
 console.log(daysCalculate("2025-07-01", "2025-07-23"));
-
 
 // Q3 Build a mini calculator that uses callbacks.
 
 function calculator(num1, num2, opCallback) {
-  return opCallback(num1, num2); // it changes to add(num1,num2); any other operator passed will form this format.
+  return opCallback(num1, num2);
 }
 function add(num1, num2) {
   return num1 + num2;
@@ -52,3 +51,30 @@ console.log(calculator(10, 20, divide));
 
 // Q4 Use WeakMap & WeakSet: Storing login metadata(timestamp, Role, etc) || Tracking which users have been processed (eg. logged in)
 
+let user = {
+  name: "Shashwat",
+  role: "Admin",
+  isLoggedIn: false,
+  lastLoginDate: "16-07-2025",
+  dateOfBirth: "10-10-2003",
+  longestSession: "3 Days",
+  location: "Ahmedabad",
+};
+
+let userExtraInfo = new WeakMap();
+
+userExtraInfo.set(user, {
+  browser: "Brave",
+  role: user.role, 
+});
+
+let logUsers = new WeakSet();
+logUsers.add(user);
+
+if (logUsers.has(user)) {
+  console.log("User already logged in.");
+
+  console.log(" Data:", userExtraInfo.get(user));
+} else {
+  console.log(" New user, processing...");
+}

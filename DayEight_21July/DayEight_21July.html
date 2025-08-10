@@ -25,13 +25,13 @@
     >
       <h1 class="text-center fw-bold text-secondary">Q1 Json Calculator</h1>
       <div class="col-md-12">
-        <label for="expression_for_calculate" class="form-label"
+        <label for="calculate" class="form-label"
           >Expression for Calculate</label
         >
         <input
           type="text"
           class="form-control"
-          id="expression_for_calculate"
+          id="calculate"
           oninput="handleCalculate()"
         />
         <span id="inputFeedback"></span>
@@ -57,11 +57,11 @@
           class="bg-primary-subtle text-black rounded-4 p-3 m-2"
           id="container"
         >
-          GrandParent
-          <div class="bg-light-subtle rounded-4 p-3 m-2" id="container">
-            Nearest Parent
-            <div id="FocusElem" class="bg-success text-white rounded-4 p-3 m-2">
-              Selected child
+          Parent
+          <div id="FocusElem" class="bg-light-subtle rounded-4 p-3 m-2">
+            Selected child
+            <div id="container" class="bg-success text-white rounded-4 p-3 m-2">
+              child
             </div>
           </div>
         </div>

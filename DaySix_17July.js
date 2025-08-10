@@ -48,12 +48,12 @@ class Purpose extends Car {
   }
 }
 
-let myCar = new Car("Honda", "Civic");
+let myCar = new Car("Honda", "City");
 console.log(myCar.getDetails());
-console.log(Car.mileage(500, 25));
+console.log(Car.mileage(500, 20));
 console.log(myCar.Category(5));
 console.log(myCar.FuelType("Petrol"));
 
-let taxi = new Purpose("Tata", "Tigor EV");
+let taxi = new Purpose("Tata", "Tiago EV");
 console.log(taxi.getDetails());
 console.log(taxi.FuelType("ev"));

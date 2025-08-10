@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fresher JS Tasks</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>JS Practice Tasks</h1>
+
+  <!-- Task 1: Print 1 to 100 (skip 3/5, multiply print) -->
+  <button onclick="task1()">Task 1 - Print Numbers</button>
+  <div id="task1-output"></div>
+
+  <!-- Task 2: Hide/Show Paragraph -->
+  <p id="hiddenPara">This is a hidden paragraph.</p>
+  <button onclick="toggleParagraph()" id="toggleBtn">Hide Paragraph</button>
+
+  <br>
+
+  <!-- Task 3: Password Eye Toggle -->
+  <input type="password" id="passwordField" placeholder="Enter Password">
+  <button onclick="togglePassword()">👁️</button>
+
+<br>
+
+  <!-- Task 4: Dropdown populated from JSON -->
+  <select id="jsonDropdown"></select>
+
+  <!-- Task 5: Multiple Inputs from JSON -->
+  <div id="multiInputs"></div>
+<br>
+  <!-- Task 6: Radio Enable/Disable -->
+  <div id="radioContainer">
+    <input type="radio" name="choice" id="option1"> Option 1
+    <input type="radio" name="choice" id="option2"> Option 2
+  </div>
+  <button onclick="disableRadio()">Disable Option 2</button>
+  <button onclick="enableRadio()">Enable Option 2</button>
+  <button onclick="getRadioValue()">Submit</button>
+<br>
+  <!-- Task 7: Difference Between Two Arrays -->
+  <button onclick="findDifference()">Task 7 - Find Difference</button>
+  <div id="diffOutput"></div>
+
+  <!-- Task 8: Find Common Elements -->
+  <button onclick="findIntersection()">Task 8 - Intersection</button>
+  <div id="intersectOutput"></div>
+
+  <!-- Task 9: Find() Method with Multiple Properties -->
+  <button onclick="findProperty()">Task 9 - Find()</button>
+  <div id="findOutput"></div>
+
+  <!-- Task 10: Dropdown with Debounce -->
+  <input type="text" id="searchBox" placeholder="Type to search...">
+  <div id="debounceOutput"></div>
+
+  <!-- Task 11: Print() Method -->
+  <button onclick="window.print()">Task 11 - Print Page</button>
+
+  <!-- Task 12: Editable Table -->
+  <table id="editableTable" border="1">
+    <tr><th>Name</th><th>Age</th></tr>
+    <tr><td contenteditable="true">John</td><td contenteditable="true">25</td></tr>
+  </table>
+
+  <!-- Task 13: Non-JS Editable -->
+  <p contenteditable="true">Edit this text without JS</p>
+
+  <script src="script.js"></script>
+</body>
+</html>
